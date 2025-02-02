@@ -11,13 +11,13 @@ function App() {
   console.log({ listOfBooks });
 
   const addBook = () => {
-    const newBook: BookItem = {
+    const newBook = {
       id: books.length + 1,
       title: "New Book",
       completed: false,
-    }
+    };
     setBooks([...books, newBook]);
-  }
+  };
 
   const toggleRead = (id: number) => {
     const updatedBooks = books.map((book) => {
@@ -39,7 +39,7 @@ function App() {
     <Stack gap={2}>
       <div className="title">
         <h1>Book List for 2025</h1>
-        <Button variant="primary" onClick={addBook}>
+        <Button className="mt-2 mb-2" onClick={addBook}>
           Add Book
           </Button>
       </div>
@@ -47,7 +47,7 @@ function App() {
       <div className="p-2">
         <h5>Current List of Books to Read in 2025</h5>
         <BookList 
-        books={listOfBooks} 
+        books={books} 
         toggleRead={toggleRead}
         deleteBook={deleteBook}
         />
