@@ -10,6 +10,7 @@ function App() {
   const [books, setBooks] = useState<BookItem[]>(listOfBooks);
   console.log({ listOfBooks });
 
+// Add a book to the list of books.
   const addBook = () => {
     const newBook = {
       id: books.length + 1,
@@ -19,6 +20,7 @@ function App() {
     setBooks([...books, newBook]);
   };
 
+  // Toggle the read status of a book.
   const toggleRead = (id: number) => {
     const updatedBooks = books.map((book) => {
       if (book.id === id) {
@@ -29,12 +31,13 @@ function App() {
     setBooks(updatedBooks);
   };
 
+  // Delete a book from the list.
   const deleteBook = (id: number) => {
     const updatedBooks = books.filter((book) => book.id !== id);
     setBooks(updatedBooks);
   };
 
-  
+  // Display the list of books with the ability to add a book, toggle read status, and delete a book.
   return (
     <Stack gap={2}>
       <div className="title">
